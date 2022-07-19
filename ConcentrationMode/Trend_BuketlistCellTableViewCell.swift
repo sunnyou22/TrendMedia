@@ -12,5 +12,4 @@ class Trend_BuketlistCellTableViewCell: UITableViewCell {
     @IBOutlet weak var checkBoxButton: UIButton!
     @IBOutlet weak var bucketlistLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
-    
 }

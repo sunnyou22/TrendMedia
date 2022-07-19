@@ -35,8 +35,6 @@ enum SettingOption: Int, CaseIterable {
     }
 }
 
-
-
 class ConcentrationModeTableViewController: UITableViewController {
     var allSettings = ["공지사항", "실험실" ,"버전정보"]
     var personalizationSetting = ["개인/보안", "앨범", "채팅", "멀티프로필"]

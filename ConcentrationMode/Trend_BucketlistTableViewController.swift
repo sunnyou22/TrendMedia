@@ -52,10 +52,11 @@ class Trend_BucketlistTableViewController: UITableViewController {
         return cell
     }
     
+    //MARK: - 셀을 편집하고 싶어!!!
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     } // 편집기능을 넣어줄거야 이게 있어야 삭제도 편집도 가능함
-    //canEditRowAt이 있어야 스와이프 삭제도 가능한 건가요?
+    //canEditRowAt이 있어야 스와이프 삭제도 가능한 건가요? 넹
     
     //우측 스와이프 디폴트 기능
     //요즘 잘 안쓰는데 남아있음
@@ -68,15 +69,15 @@ class Trend_BucketlistTableViewController: UITableViewController {
             list.remove(at: indexPath.row)
             tableView.reloadData()
             
-            tableView.reloadSections(<#T##sections: IndexSet##IndexSet#>, with: <#T##UITableView.RowAnimation#>) // -> 테스트해보기
+//            tableView.reloadSections(<#T##sections: IndexSet##IndexSet#>, with: <#T##UITableView.RowAnimation#>) // -> 테스트해보기
         }
     }
-    
-    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        //즐겨찾기, 핀고정
-    }
-    
-    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        //tkrwp
-    }
+//    
+//    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+//        //즐겨찾기, 핀고정
+//    }
+//    
+//    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+//        //삭제
+//    }
 }

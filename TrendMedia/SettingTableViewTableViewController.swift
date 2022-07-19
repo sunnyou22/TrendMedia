@@ -8,7 +8,7 @@
 import UIKit
 
 class SettingTableViewTableViewController: UITableViewController {
-    var birthDayFriend = ["뽀로러", "신데렐라", "울라프", "스노기". "모귈", "고래밥"]
+    var birthDayFriend = ["뽀로러", "신데렐라", "울라프", "스노기", "모귈", "고래밥"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,23 +33,23 @@ class SettingTableViewTableViewController: UITableViewController {
         } else {
             return "섹션"
         }
-     //섹션의 갯수를 지정해줘도 else처리를 해줘야함
+        //섹션의 갯수를 지정해줘도 else처리를 해줘야함
     }
     
-    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        return "푸터"
-    }
-    
-    // 꾸미기 좋음
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        <#code#>
-    }
-    
-    // 높이로 구분학  쉽게
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        <#code#>
-    }
-    
+//    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+//        return "푸터"
+//    }
+//
+//    // 꾸미기 좋음
+//    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        <#code#>
+//    }
+//
+//    // 높이로 구분학  쉽게
+//    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        <#code#>
+//    }
+//
     //1. 셀의 갯수(필수): 섹션마다 셀의 수
     // ex)카톡 100명 > 셀 100개
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -66,30 +66,30 @@ class SettingTableViewTableViewController: UITableViewController {
         
         return 3
     }
-  
+    
     //2. 셀의 디자인과 데이터 필수
     //ex) 키톡 이저말, 프로필 사진, 상태메세지
     // 셀 갯수만틈 실행이 됨 -> 반복문을 사용할 필요가 없음
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //*100
-        let cell = tableView.dequeueReusableCell(withIdentifier: "settingCell")
-//
-//        cell?.textLabel?.text = [birthDayFriend[indexPath.row]]
-//        if indexPath.section == 0 {
-//
-//            if indexPath.row == 0 {
-//                cell?.textLabel?.text = birthDayFriend[indexPath.row]
-//            } else if indexPath.row == 1 {
-//                cell?.textLabel?.text = birthDayFriend[indexPath.row]
-//            } else if indexPath.row == 2 {
-//                cell?.textLabel?.text == birthDayFriend[2]
-//            }
-//
-//            cell?.textLabel?.text = "셀 텍스트"
-//            cell?.textLabel?.textColor = .systemMint
-//
-//
-//        }
-        override func tableView(_ tableView: UITableView, heightForRowAt indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "settingCell")!
+        
+                cell.textLabel?.text = birthDayFriend[indexPath.row]
+                if indexPath.section == 0 {
+        
+                    if indexPath.row == 0 {
+                        cell.textLabel?.text = birthDayFriend[indexPath.row]
+                    } else if indexPath.row == 1 {
+                        cell.textLabel?.text = birthDayFriend[indexPath.row]
+                    } else if indexPath.row == 2 {
+                        cell.textLabel?.text = birthDayFriend[2]
+                    }
+        
+                    cell.textLabel?.text = "셀 텍스트"
+                    cell.textLabel?.textColor = .systemMint
+        
+        
+                }
+    return cell
     }
 }
