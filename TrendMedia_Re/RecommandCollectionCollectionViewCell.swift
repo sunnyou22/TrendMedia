@@ -8,6 +8,5 @@
 import UIKit
 
 class RecommandCollectionViewCell: UICollectionViewCell {
-    
     @IBOutlet weak var postImageView: UIImageView!
 }
