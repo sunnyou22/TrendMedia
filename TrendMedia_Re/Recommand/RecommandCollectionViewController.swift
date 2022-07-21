@@ -43,7 +43,7 @@ class RecommandCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecommandCollectionViewCell", for: indexPath) as? RecommandCollectionViewCell else {
-            return UICollectionViewCell()
+            return UICollectionViewCell() // 애플이 만들어놓은 인스턴스가 반환딤
         }
         cell.postImageView.backgroundColor = .orange
         

@@ -25,11 +25,24 @@ class Trend_BucketlistTableViewController: UITableViewController {
     
     @IBAction func userTextFieldReturn(_ sender: UITextField) {
         
-        list.append(sender.text!) // 추가한 셀ㄹ만큼 테이블뷰를 갱신해줘야함
+        //MARK: if let ver
+        if let value = sender.text?.trimmingCharacters(in: .whitespacesAndNewlines), !value.isEmpty, (2...6).contains(value.count) // 사용자가 비밀번호에 그냥 스페이스만 입력하면 그걸 지워줌
+        {
+            list.append(value) // 중요, 전체 셀에 반영. // 추가한 셀ㄹ만큼 테이블뷰를 갱신해줘야함
+            tableView.reloadData() //테이블 뷰를 다시 그려줘야함
+        } else {
+            // 토스트 메세지 띄우기 가능
+        }
         
-        // 중요
-        //전체 셀에 반영
-        tableView.reloadData() //테이블 뷰를 다시 그려줘야함
+        
+        //MARK: guard ver
+        guard let value = sender.text?.trimmingCharacters(in: .whitespacesAndNewlines), !value.isEmpty, (2...6).contains(value.count) else {
+            // Alert, toast 통해서 왜 오류인지 사용자에게 알려줘야함
+            return // 반환값이 없으니까 그냥 return 해주기
+        }
+        list.append(value)
+        tableView.reloadData()
+        
         // 특정섹션만 갱신
        // tableView.reloadSections(<#T##sections: IndexSet##IndexSet#>, with: <#T##UITableView.RowAnimation#>) // 찾아보기
         // 하나의 줄만 갱신
@@ -43,7 +56,7 @@ class Trend_BucketlistTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Trend_BuketlistCellTableViewCell", for: indexPath) as! Trend_BuketlistCellTableViewCell // 아웃렛을 쓰기우ㅣ해서
+        let cell = tableView.dequeueReusableCell(withIdentifier: Trend_BuketlistCellTableViewCell.identifier, for: indexPath) as! Trend_BuketlistCellTableViewCell // 아웃렛을 쓰기우ㅣ해서
             // 위의 for은 애플이 주는 인텍스 말고 정확하게 해달 테이블 뷰 인텍스와 연결하기 위해서
         
         cell.bucketlistLabel.text = list[indexPath.row]
