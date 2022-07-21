@@ -13,7 +13,7 @@ import Kingfisher
 class RecommandCollectionViewController: UICollectionViewController {
 
     //이미지 넣기 라이브러리 많을 수록 이미지 뜨는 속도가 느림
-    var imageURL = "https://images.app.goo.gl/2XLpagvSXZnwdjDx8" // 애셋에 없어서 용량에 문제가 없음
+    var imageURL = "http://image.kyobobook.co.kr/images/book/large/658/l9788901243658.jpg" // 애셋에 없어서 용량에 문제가 없음
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +42,9 @@ class RecommandCollectionViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecommandCollectionViewCell", for: indexPath) as! RecommandCollectionViewCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecommandCollectionViewCell", for: indexPath) as? RecommandCollectionViewCell else {
+            return UICollectionViewCell()
+        }
         cell.postImageView.backgroundColor = .orange
         
         //라이브러리

@@ -17,6 +17,7 @@ class TrendMediaSearchTableViewCell: UITableViewCell {
     func configureCell(data: Movie) {
         
         // 디자인을 짜고
+        titleLabel.textAlignment = NSTextAlignment.center // 이렇게 가운데 정렬을 하는구나ㅣ
         titleLabel.font = .boldSystemFont(ofSize: 15)
         titleLabel.text = data.title
         releaseLabel.text = "\(data.releaseDate) | \(data.runtime)분 | \(data.rate)점"
